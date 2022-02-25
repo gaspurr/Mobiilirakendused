@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello world!")
-            .padding()
+        
+        VStack{
+            Image("cold")
+                .resizable()
+                .scaledToFit()
+            Text("What a nice weather")
+                .font(.largeTitle)
+                .bold()
+                .multilineTextAlignment(.center)
+            Text("Currently: 2 °C. Light rain. Mostly cloudy.")
+                .font(.title)
+                .foregroundColor(.secondary)
+        }
+
     }
 }
 
