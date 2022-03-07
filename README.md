@@ -19,6 +19,6 @@
   
 ### Iphone'l testimine
 
-
+[Õpetus](https://medium.com/nerd-for-tech/how-to-run-xcode-on-your-iphone-irene-bosque-783a2975534a)
 
 Projekti initsialiseerimisel raskusi ei esinenud. 
