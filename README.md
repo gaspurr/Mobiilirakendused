@@ -1,13 +1,13 @@
-#Mobiilirakendused Grupp 1
+# Mobiilirakendused Grupp 1
 
-##Äpi Setup
+## Äpi Setup
 
-###Eeldused
+### Eeldused
 * MacOS Operatsioonisüsteem
 * Installeeritud Xcode
 * Telefoniga testimiseks Iphone
 
-###Setup
+### Setup
 * Git clone repositoorium
 * Ava Xcode
 * Vali _open a project or file_
