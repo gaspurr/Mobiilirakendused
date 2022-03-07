@@ -17,6 +17,8 @@
   <br />
   ![Alt text](./images/simulator.jpg)
   
-*
+### Iphone'l testimine
+
+
 
 Projekti initsialiseerimisel raskusi ei esinenud. 
