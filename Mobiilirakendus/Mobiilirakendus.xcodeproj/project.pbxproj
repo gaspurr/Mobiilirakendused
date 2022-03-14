@@ -11,6 +11,8 @@
 		EB89A27527C8F17B001392F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A27427C8F17B001392F6 /* ContentView.swift */; };
 		EB89A27727C8F17E001392F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB89A27627C8F17E001392F6 /* Assets.xcassets */; };
 		EB89A27A27C8F17E001392F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB89A27927C8F17E001392F6 /* Preview Assets.xcassets */; };
+		EB89A28327DE49A9001392F6 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A28227DE49A9001392F6 /* SwiftUIView.swift */; };
+		EB89A28627DF7C1E001392F6 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A28527DF7C1E001392F6 /* SecondView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		EB89A27427C8F17B001392F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EB89A27627C8F17E001392F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB89A27927C8F17E001392F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB89A28227DE49A9001392F6 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		EB89A28527DF7C1E001392F6 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		EB89A27127C8F17B001392F6 /* Mobiilirakendus */ = {
 			isa = PBXGroup;
 			children = (
+				EB89A28527DF7C1E001392F6 /* SecondView.swift */,
+				EB89A28227DE49A9001392F6 /* SwiftUIView.swift */,
 				EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */,
 				EB89A27427C8F17B001392F6 /* ContentView.swift */,
 				EB89A27627C8F17E001392F6 /* Assets.xcassets */,
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB89A27527C8F17B001392F6 /* ContentView.swift in Sources */,
+				EB89A28327DE49A9001392F6 /* SwiftUIView.swift in Sources */,
+				EB89A28627DF7C1E001392F6 /* SecondView.swift in Sources */,
 				EB89A27327C8F17B001392F6 /* MobiilirakendusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
