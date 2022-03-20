@@ -1,24 +1,10 @@
 # Mobiilirakendused Grupp 1
 
-## Äpi Setup
+## 3 ülesanne
+Swiftis on suhteliselt kerge liikuda erinevate vaadete vahel.
+* Failis tuleb luua NavigationView, mis sisuliselt ütleb rakendusele, et selle bloki sees võib näidata erinevate vaadete sisu
+* NavigationView sisse võite lisada ükskõik mida, kuid NavigationLink on see, mis suunab sind defineeritud vaatele.
 
-### Eeldused
-* MacOS Operatsioonisüsteem
-* Installeeritud Xcode
-* Telefoniga testimiseks Iphone
-
-### Setup
-* Git clone repositoorium
-* Ava Xcode
-* Vali _open a project or file_
-* Vali meie projekt
-* Vajuta _Start the active scheme_ nuppu. Tuleb kiri: Build successful ning avaneb simulaatori vaade.
-  <br >
-  <br />
-  ![Alt text](./images/simulator.jpg)
-  
-### Iphone'l testimine
-
-
-
-Projekti initsialiseerimisel raskusi ei esinenud. 
+### Mis tekitas raskusi
+* Kõige raskem oli aru saada, kuidas täpselt navigatsioon swiftis käib.
+* Võimalik on kasutada ka Storyboardi, mis on uuem variant, kuid see ajas hetkel pea rohkem sassi, sest seal ei kirjutata otseselt koodi.
