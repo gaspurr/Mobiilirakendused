@@ -12,10 +12,16 @@ struct ContentView: View {
     let url = "https://loveincorporated.blob.core.windows.net/contentimages/gallery/03211459-0607-4d07-8a6c-9966e3820a7d-Mount-Kirkjufell-Iceland.jpg"
     @State var selectedIndex = 1
     
+    @State private var showSheet: Bool = false
+    
     let tabBarImageNames = ["trash","gear","camera.fill","person"]
     
     init(){
         UITabBar.appearance().barTintColor = .systemBackground
+    }
+    
+    func activateSheet(){
+        showSheet = true
     }
     var body: some View {
         
@@ -26,15 +32,34 @@ struct ContentView: View {
                 case 0:
                     VStack{
                         Spacer()
-                        /*NavigationLink(destination: SecondView(),Image(systemName: tabBarImageNames[0]))
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundColor(.orange)*/
-                        Text("wefwef")
+                        Button {
+                        showSheet = true
+                        } label: {
+                            Text("Camera View")
+                            Image(systemName: tabBarImageNames[2])
+                                .font(.system(size: 24, weight: .bold))
+                                .actionSheet(isPresented: $showSheet){
+                                    ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [.default(Text("Photo library")){
+                                        
+                                    },
+                                                                                                           .default(Text("Camera")) {
+                                        
+                                    },
+                                                                                                           .cancel()
+                                    ])
+                                }
+                        }
                         Spacer()
                     }
                     
                 case 1:
-
+                    Spacer()
+                    ScrollView {
+                        Text("Settings")
+                        Text("Efeef")
+                        Text("About me")
+                        Text("About you")
+                    }
                 case 2:
                     VStack{
                         Spacer()
@@ -88,14 +113,19 @@ struct ContentView: View {
                     }, label: {
                         Spacer()
                         if(tabBarImageNames[num] == "camera.fill"){
-                            
-                            Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(.orange) : .init(white: 0.8))
+                            Spacer()
+                            Button {
+                            showSheet = true
+                            } label: {
+                                Image(systemName: tabBarImageNames[num])
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(selectedIndex == num ? Color(.orange) : .init(white: 0.8))
+
+                            }
+
                         }else{
                             Image(systemName: tabBarImageNames[num])
                                 .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
                         }
 
                         Spacer()
