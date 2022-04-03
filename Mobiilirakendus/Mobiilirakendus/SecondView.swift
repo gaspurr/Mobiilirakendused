@@ -32,6 +32,20 @@ struct SecondView: View {
             Text("Currently: 2 °C. Light rain. Mostly cloudy.")
                 .font(.title)
                 .foregroundColor(.secondary)
+            Text("Random number is: \(nr)")
+            Button(action: {
+                nr=Int.random(in: 1..<10)
+            }){
+                HStack{
+                    Image("cold")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text("Generate number")
+                }
+                .background(Color.blue)
+                .cornerRadius(10)
+                .foregroundColor(Color.white)
+            }
         }
         
     }
