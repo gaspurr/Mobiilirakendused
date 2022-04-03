@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0FC7A227FA526F007067ED /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FC7A127FA526F007067ED /* ImagePickerView.swift */; };
+		8D0FC7A427FA52C2007067ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FC7A327FA52C2007067ED /* Coordinator.swift */; };
 		EB89A27327C8F17B001392F6 /* MobiilirakendusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */; };
 		EB89A27527C8F17B001392F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A27427C8F17B001392F6 /* ContentView.swift */; };
 		EB89A27727C8F17E001392F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB89A27627C8F17E001392F6 /* Assets.xcassets */; };
 		EB89A27A27C8F17E001392F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB89A27927C8F17E001392F6 /* Preview Assets.xcassets */; };
 		EB89A28627DF7C1E001392F6 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A28527DF7C1E001392F6 /* SecondView.swift */; };
-		EB89A28B27E7B821001392F6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB89A28A27E7B821001392F6 /* Storyboard.storyboard */; };
-		EB89A28D27E7C35E001392F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A28C27E7C35E001392F6 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D0FC76A27FA4A8E007067ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D0FC7A127FA526F007067ED /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		8D0FC7A327FA52C2007067ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EB89A26F27C8F17B001392F6 /* Mobiilirakendus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobiilirakendus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobiilirakendusApp.swift; sourceTree = "<group>"; };
 		EB89A27427C8F17B001392F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EB89A27627C8F17E001392F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB89A27927C8F17E001392F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB89A28527DF7C1E001392F6 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
-		EB89A28A27E7B821001392F6 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		EB89A28C27E7C35E001392F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +58,12 @@
 		EB89A27127C8F17B001392F6 /* Mobiilirakendus */ = {
 			isa = PBXGroup;
 			children = (
-				EB89A28A27E7B821001392F6 /* Storyboard.storyboard */,
+				8D0FC76A27FA4A8E007067ED /* Info.plist */,
 				EB89A28527DF7C1E001392F6 /* SecondView.swift */,
 				EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */,
-				EB89A28C27E7C35E001392F6 /* ViewController.swift */,
 				EB89A27427C8F17B001392F6 /* ContentView.swift */,
+				8D0FC7A127FA526F007067ED /* ImagePickerView.swift */,
+				8D0FC7A327FA52C2007067ED /* Coordinator.swift */,
 				EB89A27627C8F17E001392F6 /* Assets.xcassets */,
 				EB89A27827C8F17E001392F6 /* Preview Content */,
 			);
@@ -136,7 +138,6 @@
 			files = (
 				EB89A27A27C8F17E001392F6 /* Preview Assets.xcassets in Resources */,
 				EB89A27727C8F17E001392F6 /* Assets.xcassets in Resources */,
-				EB89A28B27E7B821001392F6 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,9 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0FC7A227FA526F007067ED /* ImagePickerView.swift in Sources */,
 				EB89A27527C8F17B001392F6 /* ContentView.swift in Sources */,
+				8D0FC7A427FA52C2007067ED /* Coordinator.swift in Sources */,
 				EB89A28627DF7C1E001392F6 /* SecondView.swift in Sources */,
-				EB89A28D27E7C35E001392F6 /* ViewController.swift in Sources */,
 				EB89A27327C8F17B001392F6 /* MobiilirakendusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +286,8 @@
 				DEVELOPMENT_TEAM = 9Z8R6DU73W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mobiilirakendus/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kas võime avada kaamera?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +317,8 @@
 				DEVELOPMENT_TEAM = 9Z8R6DU73W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mobiilirakendus/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Kas võime avada kaamera?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
