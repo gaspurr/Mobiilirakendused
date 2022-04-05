@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47232D5027FC251A00EE4779 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47232D4F27FC251A00EE4779 /* Persistence.swift */; };
+		47232D5327FC254900EE4779 /* Mobiilirakendus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47232D5127FC254900EE4779 /* Mobiilirakendus.xcdatamodeld */; };
 		8D0FC7A227FA526F007067ED /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FC7A127FA526F007067ED /* ImagePickerView.swift */; };
 		8D0FC7A427FA52C2007067ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0FC7A327FA52C2007067ED /* Coordinator.swift */; };
 		EB89A27327C8F17B001392F6 /* MobiilirakendusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47232D4F27FC251A00EE4779 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		47232D5227FC254900EE4779 /* Mobiilirakendus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mobiilirakendus.xcdatamodel; sourceTree = "<group>"; };
 		8D0FC76A27FA4A8E007067ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D0FC7A127FA526F007067ED /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		8D0FC7A327FA52C2007067ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				EB89A28527DF7C1E001392F6 /* SecondView.swift */,
 				EB89A27227C8F17B001392F6 /* MobiilirakendusApp.swift */,
 				EB89A27427C8F17B001392F6 /* ContentView.swift */,
+				47232D4F27FC251A00EE4779 /* Persistence.swift */,
+				47232D5127FC254900EE4779 /* Mobiilirakendus.xcdatamodeld */,
 				8D0FC7A127FA526F007067ED /* ImagePickerView.swift */,
 				8D0FC7A327FA52C2007067ED /* Coordinator.swift */,
 				EB89A27627C8F17E001392F6 /* Assets.xcassets */,
@@ -148,9 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47232D5327FC254900EE4779 /* Mobiilirakendus.xcdatamodeld in Sources */,
 				8D0FC7A227FA526F007067ED /* ImagePickerView.swift in Sources */,
 				EB89A27527C8F17B001392F6 /* ContentView.swift in Sources */,
 				8D0FC7A427FA52C2007067ED /* Coordinator.swift in Sources */,
+				47232D5027FC251A00EE4779 /* Persistence.swift in Sources */,
 				EB89A28627DF7C1E001392F6 /* SecondView.swift in Sources */,
 				EB89A27327C8F17B001392F6 /* MobiilirakendusApp.swift in Sources */,
 			);
@@ -359,6 +367,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		47232D5127FC254900EE4779 /* Mobiilirakendus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				47232D5227FC254900EE4779 /* Mobiilirakendus.xcdatamodel */,
+			);
+			currentVersion = 47232D5227FC254900EE4779 /* Mobiilirakendus.xcdatamodel */;
+			path = Mobiilirakendus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB89A26727C8F17B001392F6 /* Project object */;
 }
