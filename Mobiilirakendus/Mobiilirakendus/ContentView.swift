@@ -8,8 +8,21 @@
 import SwiftUI
 import Combine
 import AVFoundation
+import CoreData
 
 struct ContentView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \UserInfo.firstName, ascending: true)],
+        animation: .default)
+    private var settings: FetchedResults<UserInfo>
+    
+    @State private var firstName = ""
+    @State private var gender = ""
+    @State private var age = 20
+    private let genders = ["Mees", "Naine"]
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var openCameraActionSheet = false
@@ -20,13 +33,13 @@ struct ContentView: View {
     
     @State private var showSheet: Bool = false
     
-    let tabBarImageNames = ["trash","gear","camera.fill","person"]
+    let tabBarImageNames = ["trash", "gear", "camera.fill", "person"]
     
-    init(){
+    init() {
         UITabBar.appearance().barTintColor = .systemBackground
     }
     
-    func activateSheet(){
+    func activateSheet() {
         showSheet = true
     }
     var body: some View {
@@ -38,8 +51,8 @@ struct ContentView: View {
          }
          }*/
         // siis katab vahetuv leht ainult pool ekraanist ära, sest ta ei hõlma tervet ekraani.
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 ZStack {
                     switch selectedIndex {
                     case 0:
@@ -48,7 +61,6 @@ struct ContentView: View {
                             Text("Delete smh")
                             Spacer()
                         }
-                        
                     case 1:
                         Spacer()
                         ScrollView {
@@ -59,9 +71,58 @@ struct ContentView: View {
                         }
                     case 2:
                         ImagePickerView(selectedImage: self.$selectedImage, sourceType: sourceType)
-                        
+                    case 3:
+                        Form {
+                            Section {
+                                TextField("Eesnimi", text: $firstName)
+                                    .disableAutocorrection(true)
+                                Picker("Sugu", selection: $gender) {
+                                    ForEach(genders, id: \.self) {
+                                        gender in Text(gender)
+                                    }
+                                }
+                                Stepper(value: $age,
+                                        in: 14...100,
+                                        label: {
+                                    Text("Vanus: \(self.age)")
+                                })
+                            }
+                            Section {
+                                Button("Salvesta") {
+                                    let userInfo = UserInfo(context: viewContext)
+                                    userInfo.firstName = self.firstName
+                                    userInfo.gender = self.gender
+                                    userInfo.age = String(self.age)
+                                    settings.forEach(viewContext.delete)
+                                    do {
+                                        try viewContext.save()
+                                    } catch {
+                                        print("error \(error.localizedDescription)")
+                                    }
+                                }
+                            }
+                            ForEach(settings) { setting in
+                                Section(header: Text("Salvestatud andmed")) {
+                                    HStack {
+                                        Text("Eesnimi").font(.headline)
+                                        Spacer()
+                                        Text(setting.firstName!)
+                                    }
+                                    HStack {
+                                        Text("Sugu").font(.headline)
+                                        Spacer()
+                                        Text(setting.gender!)
+                                    }
+                                    HStack {
+                                        Text("Vanus").font(.headline)
+                                        Spacer()
+                                        Text(setting.age!)
+                                    }
+                                }
+                            }
+                        }.navigationTitle(Text("Sisesta andmed"))
                     default:
-                        VStack{
+                        VStack {
                             Spacer()
                             AsyncImage(url: URL(string: url)) { image in
                                 image
@@ -133,6 +194,12 @@ struct ContentView: View {
                     Button(action: {
                         selectedIndex = 3
                     }) {
+                        Image(systemName: "wrench.and.screwdriver")
+                            .frame(width: 40, height: 40)
+                    }
+                    Button(action: {
+                        selectedIndex = 4
+                    }) {
                         Image(systemName: "person.fill")
                             .frame(width: 40, height: 40)
                     }
@@ -141,10 +208,17 @@ struct ContentView: View {
             }
         }
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+private let itemFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .medium
+    return formatter
+}()
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
