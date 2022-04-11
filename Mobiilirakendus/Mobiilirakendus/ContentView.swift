@@ -19,6 +19,11 @@ struct ContentView: View {
         animation: .default)
     private var settings: FetchedResults<UserInfo>
     
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Picture.binaryImg, ascending: true)],
+        animation: .default)
+    private var pictures: FetchedResults<Picture>
+    
     @State private var firstName = ""
     @State private var gender = ""
     @State private var age = 20
@@ -56,7 +61,7 @@ struct ContentView: View {
                 ZStack {
                     switch selectedIndex {
                     case 0:
-                        VStack{
+                        VStack {
                             Spacer()
                             Text("Delete smh")
                             Spacer()
@@ -72,6 +77,12 @@ struct ContentView: View {
                     case 2:
                         ImagePickerView(selectedImage: self.$selectedImage, sourceType: sourceType)
                     case 3:
+                        ForEach(pictures) { picture in
+                            HStack {
+                                Image(uiImage: UIImage(data: picture.binaryImg!)!)
+                            }
+                        }
+                    case 4:
                         Form {
                             Section {
                                 TextField("Eesnimi", text: $firstName)
@@ -94,6 +105,9 @@ struct ContentView: View {
                                     userInfo.gender = self.gender
                                     userInfo.age = String(self.age)
                                     settings.forEach(viewContext.delete)
+                                    self.firstName = ""
+                                    self.gender = ""
+                                    self.age = 20
                                     do {
                                         try viewContext.save()
                                     } catch {
@@ -166,19 +180,19 @@ struct ContentView: View {
                         selectedIndex = 0
                     }) {
                         Image(systemName: "scribble")
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                     }
                     Button(action: {
                         selectedIndex = 1
                     }) {
                         Image(systemName: "allergens")
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                     }
                     Button(action: {
                         openCameraActionSheet.toggle()
                     }) {
                         Image(systemName: "camera.fill")
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                     }.actionSheet(isPresented: $openCameraActionSheet){
                         ActionSheet(title: Text("Kas soovid avada kaamera või galerii?"), buttons: [
                             .default(Text("Kaamera"), action: {
@@ -194,14 +208,20 @@ struct ContentView: View {
                     Button(action: {
                         selectedIndex = 3
                     }) {
-                        Image(systemName: "wrench.and.screwdriver")
-                            .frame(width: 40, height: 40)
+                        Image(systemName: "photo")
+                            .frame(width: 30, height: 30)
                     }
                     Button(action: {
                         selectedIndex = 4
                     }) {
+                        Image(systemName: "wrench.and.screwdriver")
+                            .frame(width: 30, height: 30)
+                    }
+                    Button(action: {
+                        selectedIndex = 5
+                    }) {
                         Image(systemName: "person.fill")
-                            .frame(width: 40, height: 40)
+                            .frame(width: 30, height: 30)
                     }
                 }
                 

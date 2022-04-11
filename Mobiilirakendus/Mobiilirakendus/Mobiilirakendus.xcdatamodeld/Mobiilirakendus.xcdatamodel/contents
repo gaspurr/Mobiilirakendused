@@ -3,13 +3,17 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Picture" representedClassName="Picture" syncable="YES" codeGenerationType="class">
+        <attribute name="binaryImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+    </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
         <attribute name="age" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="gender" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="UserInfo" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Item" positionX="-45" positionY="27" width="128" height="44"/>
+        <element name="UserInfo" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Picture" positionX="-54" positionY="9" width="128" height="44"/>
     </elements>
 </model>
