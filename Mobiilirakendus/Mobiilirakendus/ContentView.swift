@@ -10,6 +10,16 @@ import Combine
 import AVFoundation
 import CoreData
 
+struct Response: Codable{
+    var results: [Result]
+}
+
+struct Result: Codable{
+    var trackId: Int
+    var trackName: String
+    var collectionName: String
+}
+
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -35,11 +45,12 @@ struct ContentView: View {
     @State var nr = 0
     let url = "https://loveincorporated.blob.core.windows.net/contentimages/gallery/03211459-0607-4d07-8a6c-9966e3820a7d-Mount-Kirkjufell-Iceland.jpg"
     @State var selectedIndex = 1
-    
     @State private var showSheet: Bool = false
     
     let tabBarImageNames = ["trash", "gear", "camera.fill", "person"]
     
+    @State private var results = [Result]()
+    @State private var searchText: String = ""
     init() {
         UITabBar.appearance().barTintColor = .systemBackground
     }
@@ -48,6 +59,8 @@ struct ContentView: View {
         showSheet = true
     }
     var body: some View {
+
+        
         //Navigation view tähendab, et selle ala sees saab niiöedal lehte vahetada. Kui Navigation view oleks näiteks selline ->
         /*NavigationView{
          VStack{
@@ -67,13 +80,26 @@ struct ContentView: View {
                             Spacer()
                         }
                     case 1:
-                        Spacer()
-                        ScrollView {
-                            Text("Settings")
-                            Text("Efeef")
-                            Text("About me")
-                            Text("About you")
+                    
+                        List(results, id: \.trackId) { item in
+                            VStack(
+                            alignment: .leading){
+                                Text(item.trackName)
+                                    .font(.headline)
+                                Text(item.collectionName)
+                            }
                         }
+                        .listStyle(.plain)
+                        .searchable(text: $searchText)
+                        .onChange(of: searchText){
+                            value in
+                            searchText = value
+                            async{
+                                await loadData(artistName: searchText)
+                            }
+                        }
+                            
+
                     case 2:
                         ImagePickerView(selectedImage: self.$selectedImage, sourceType: sourceType)
                     case 3:
@@ -226,6 +252,22 @@ struct ContentView: View {
                 }
                 
             }
+        }
+    }
+    func loadData(artistName: String) async{
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(artistName)&entity=song") else{
+            print("invalid URL")
+            return
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            
+            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data){
+                results = decodedResponse.results
+            }
+        }catch {
+            print("Invalid Data")
         }
     }
 }
