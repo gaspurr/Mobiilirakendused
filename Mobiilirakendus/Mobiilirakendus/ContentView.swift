@@ -49,8 +49,7 @@ struct ContentView: View {
     
     let tabBarImageNames = ["trash", "gear", "camera.fill", "person"]
     
-    @State private var results = [Result]()
-    @State private var searchText: String = ""
+
     init() {
         UITabBar.appearance().barTintColor = .systemBackground
     }
@@ -80,25 +79,7 @@ struct ContentView: View {
                             Spacer()
                         }
                     case 1:
-                    
-                        List(results, id: \.trackId) { item in
-                            VStack(
-                            alignment: .leading){
-                                Text(item.trackName)
-                                    .font(.headline)
-                                Text(item.collectionName)
-                            }
-                        }
-                        .listStyle(.plain)
-                        .searchable(text: $searchText)
-                        .onChange(of: searchText){
-                            value in
-                            searchText = value
-                            async{
-                                await loadData(artistName: searchText)
-                            }
-                        }
-                            
+                        music()
 
                     case 2:
                         ImagePickerView(selectedImage: self.$selectedImage, sourceType: sourceType)
@@ -254,22 +235,7 @@ struct ContentView: View {
             }
         }
     }
-    func loadData(artistName: String) async{
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(artistName)&entity=song") else{
-            print("invalid URL")
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data){
-                results = decodedResponse.results
-            }
-        }catch {
-            print("Invalid Data")
-        }
-    }
+
 }
 
 private let itemFormatter: DateFormatter = {
